@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        max-width: 65ch;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    Do you REALLY need SSR? React is a powerful framework for updating and
+    rendering HTML on a user's device. It revolutionized the way we write render
+    logic by sending a giant JavaScript bundle to the user's device that could
+    both render the HTML and also update it as things change. Before React, we
+    had a thing called templating languages, and libraries, and frameworks with
+    their own template systems and it was chaos. You would write your HTML first
+    and then you would ship JavaScript to change what the HTML did, and update
+    it after it loaded. But you had separate steps for building the HTML and
+    templates and then for the JavaScript that updates them after. When we have
+    a page with tweets, like on Twitter's homepage, we would first need to
+    figure out who the user is and what posts we should show them. We do that by
+    fetching from the database on the server. Then, we use that data to generate
+    some HTML and send that to the user so they can see their posts. But what
+    happens when they make a new post? Before frameworks like React and before
+    the AJAX revolution of client-side JavaScript running requests, every post
+    or new event on the web would fire a full web request, and refresh the
+    entire page, generating entirely new HTML. React made it easier to do all of
+    that on client, and just send JSON blobs back and forth instead. However,
+    this came with a cost. The first cost is the client-side performance hit,
+    because the server is not rendering HTML to users' devices anymore. Now, the
+    user's device is responsible for a lot more work. On top of that, metadata,
+    tags, and all the fancy things that robots crawl and get when you post on
+    Twitter, or on Google, or on Discord/Slack require that the HTML file is not
+    empty. Another cost is that you have to build your own separate system to
+    generate unique HTML for every page, and you have to build a full separate
+    API to actually get the data to the client to render on the mobile device.
+    Previously, when you built HTML and templates on the server with the
+    original model, HTML was static, and it did not change. If you want your
+    HTML to change, you need something like JavaScript to update the HTML. So,
+    we have two options: We can have an HTML file with nothing in it, and then
+    the JavaScript does everything on the user's device, or we generate the HTML
+    fully on the server, and then the client updates it from there. Server-Side
+    Rendering (SSR) is a modern approach to rendering web pages on server-side
+    before serving them to the user’s mobile devices. SSR means generating
+    dynamic web pages on server-side while keeping JavaScripts functionalities
+    of client-side updates and interactivity intact. A lot of people would argue
+    what we had previously is SSR, which is rendering a page by the server but
+    just generating HTML. What
+  </body>
+</html>
