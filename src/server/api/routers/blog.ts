@@ -31,23 +31,4 @@ export const blogRouter = createTRPCRouter({
         transcriptId: transcript.id,
       }
     }),
-  publishBlog: publicProcedure
-    .input(z.object({ transcriptId: z.string(), title: z.string(), html: z.string() }))
-    .mutation(async ({ input, ctx }) => {
-      const uriFriendlyTitle = input.title.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
-      await ctx.prisma.post.create({
-        data: {
-          transcript: {
-            connect: {
-              id: input.transcriptId,
-            },
-          },
-          title: input.title,
-          content: input.html,
-          urlEncodedTitle: uriFriendlyTitle,
-          published: true,
-        },
-
-
-      });
-
+});

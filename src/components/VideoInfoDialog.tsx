@@ -41,7 +41,7 @@ export function VideoInfoDialog({ youtubeUrl }: Props) {
       },
     }
   );
-
+  console.log(videoData);
   const {
     data: transcriptStatus,
     isLoading: transcriptIsLoading,
@@ -58,6 +58,8 @@ export function VideoInfoDialog({ youtubeUrl }: Props) {
   const info = videoData?.info;
 
   const generateTranscript = api.transcript.generateTranscript.useMutation();
+  const { data: subtitleData, isLoading: subtitleIsLoading } =
+    api.youtube.getCaptions.useQuery({ youtubeUrl });
   const handleTranscriptGeneration = async () => {
     const result = await generateTranscript.mutateAsync(
       { youtubeId: info?.videoDetails.videoId as string },
